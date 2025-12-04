@@ -13,19 +13,11 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autogeneration de value
     private Long id;
     private String titre;
-    private String autor;
+    private String author;
     private String isbn;
-    private boolean availible;
+    private boolean available;
 
     public Book() {
-    }
-
-    public Book(Long id, String titre, String autor, String isbn, boolean availible) {
-        this.id = id;
-        this.titre = titre;
-        this.autor = autor;
-        this.isbn = isbn;
-        this.availible = availible;
     }
 
     public Long getId() {
@@ -44,12 +36,12 @@ public class Book {
         this.titre = titre;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getIsbn() {
@@ -60,26 +52,24 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public boolean isAvailible() {
-        return availible;
+    public boolean isAvailable() {
+        return available;
     }
 
-    public void setAvailible(boolean availible) {
-        this.availible = availible;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return availible == book.availible && Objects.equals(id, book.id) &&
-                Objects.equals(titre, book.titre) && Objects.equals(autor, book.autor) &&
-                Objects.equals(isbn, book.isbn);
+        return available == book.available && Objects.equals(id, book.id) && Objects.equals(titre, book.titre) && Objects.equals(author, book.author) && Objects.equals(isbn, book.isbn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, titre, autor, isbn, availible);
+        return Objects.hash(id, titre, author, isbn, available);
     }
 }
 

@@ -1,5 +1,6 @@
 package com.maxime.ExBibli;
 
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,16 +34,33 @@ public class BookControler {
             @RequestBody Book book) {
         service.createANewBook(book);
     }
-
-    @PostMapping
-    public void borrowBook(
-            @PathVariable Long id,
-            @RequestBody Map<Boolean, Object> borrow
-    ) {
-        service.borrowBook(id, borrow);
-
-
+    @PutMapping("/borrow/{id}")
+    public void borrowBook(@PathVariable Long id)
+    {
+        service.borrowBook(id);
     }
+    @PutMapping("/return/{id}")
+    public void returnBook(@PathVariable Long id)
+    {
+        service.returnBook(id);
+    }
+    @GetMapping("/{author}")
+    public void researchBookByAuthor (@PathVariable String author @RequestBody)
+    {
+        service.researchBookByAuthor(author);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
