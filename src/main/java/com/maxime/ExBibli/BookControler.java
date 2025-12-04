@@ -45,7 +45,7 @@ public class BookControler {
         service.returnBook(id);
     }
     @GetMapping("/{author}")
-    public void researchBookByAuthor (@PathVariable String author @RequestBody)
+    public void researchBookByAuthor (@PathVariable String author)
     {
         service.researchBookByAuthor(author);
     }
