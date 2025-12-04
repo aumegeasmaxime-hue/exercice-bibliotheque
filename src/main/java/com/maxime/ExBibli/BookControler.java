@@ -36,7 +36,7 @@ public class BookControler {
 
     @PostMapping
     public void borrowBook(
-            @PathVariable Integer id,
+            @PathVariable Long id,
             @RequestBody Map<Boolean, Object> borrow
     ) {
         service.borrowBook(id, borrow);
