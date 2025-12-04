@@ -20,16 +20,14 @@ public class BookService {
     public List<Book> getAllBook() {
         return repository.findAll();
     }
-    public Book getBookById(Integer id) {
+    public Book getBookById(Long id) {
         return repository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("This Book id " + id + " not found"));
     }
     public void createANewBook(Book book) {
         repository.save(book);
     }
-
-
-    public void borrowBook(Integer id, Map<Boolean, Object> borrow) {
+    public void borrowBook(Long id, Map<Boolean, Object> borrow) {
 
     }
 }

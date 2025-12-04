@@ -23,7 +23,7 @@ public class BookControler {
 
     @GetMapping("/{id}")
     public Book getBookById(
-            @PathVariable Integer id
+            @PathVariable Long id
     ) {
         return service.getBookById(id);
     }

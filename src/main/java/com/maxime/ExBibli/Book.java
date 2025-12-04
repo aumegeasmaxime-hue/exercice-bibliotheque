@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autogeneration de value
-    private Integer id;
+    private Long id;
     private String titre;
     private String autor;
     private String isbn;
@@ -20,7 +20,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(Integer id, String titre, String autor, String isbn, boolean availible) {
+    public Book(Long id, String titre, String autor, String isbn, boolean availible) {
         this.id = id;
         this.titre = titre;
         this.autor = autor;
@@ -28,11 +28,11 @@ public class Book {
         this.availible = availible;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
