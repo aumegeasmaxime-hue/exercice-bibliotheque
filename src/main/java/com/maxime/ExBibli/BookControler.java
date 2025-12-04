@@ -6,38 +6,52 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/software-engineers")
+@RequestMapping("api/v1/book")
 public class BookControler {
 
-        private final BookService service;
+    private final BookService service;
 
-        public BookControler(BookService softwareEngineerService) {
-            this.service = softwareEngineerService;
-        }
+    public BookControler(BookService softwareEngineerService) {
+        this.service = softwareEngineerService;
+    }
 
-        @GetMapping
-        public List<Book> getAllBook() {
-            return service.getAllBook();
+    @GetMapping
+    public List<Book> getAllBook() {
+        return service.getAllBook();
 
-        }
-        @GetMapping("/{id}")
-        public Book getBookById(
-                @PathVariable Integer id
-        ){
-            return service.getBookById(id);
-        }
+    }
+
+    @GetMapping("/{id}")
+    public Book getBookById(
+            @PathVariable Integer id
+    ) {
+        return service.getBookById(id);
+    }
+
     @PostMapping
     public void addBook(
-            @RequestBody Book softwareEngineer){
-        service.createANewBook(softwareEngineer);
+            @RequestBody Book book) {
+        service.createANewBook(book);
     }
-    @PutMapping("/{id}")
-    public Book updateBook(
+
+    @PostMapping
+    public void borrowBook(
             @PathVariable Integer id,
-            @RequestBody Map<String,Object> update
+            @RequestBody Map<Boolean, Object> borrow
     ) {
-        return service.updateBook(id,update);
+        service.borrowBook(id, borrow);
+
+
     }
-    }
+
+}
+
+
+
+
+
+
+
+
 
 
